@@ -2,9 +2,9 @@
 **Concept** is a responsive Bootstrap 4 admin template. It provides you with a collection of ready to use code snippets and utilities, custom pages, loads of charts, 4 different dashboard variations, a collection of applications and some useful widgets. Preview of this awesome admin template available here: https://colorlib.com/polygon/concept/index.html
 
 # Preview
-
+แกแddd
 ### Screenshot
-
+แก็บ
 ![Concept admin dashboard template preview](https://colorlib.com/wp/wp-content/uploads/sites/2/concept-free-admin-dashboard-panel.jpg)
 
 ### Demo Site: [[Here]](https://colorlib.com/polygon/concept/index.html)
