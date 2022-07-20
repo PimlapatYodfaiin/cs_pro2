@@ -223,10 +223,10 @@ $d =$row['eq_buydate'] ;
                                                         <td><?= number_format($row['eq_price'], 2) ?></td>
                                                         
                                                         <td><?= $row['eq_fiscal_year'] ?></td>
-                                                        <td></td>
+                                                        <td>ffdsgfgg</td>
 
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>rgrggh</td>
+                                                        <td>tghtthtrd</td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
