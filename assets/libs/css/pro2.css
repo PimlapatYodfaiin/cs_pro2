@@ -1,0 +1,12 @@
+.form-control {
+    display: block;
+    width: 80%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #71748d;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d2d2e4;
+    border-radius: 31px;
+    ;
+}
