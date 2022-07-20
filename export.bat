@@ -1,0 +1,1 @@
+mysqldump -f -u root  620112230039p_procument2 >  620112230039p_procument2.sql
