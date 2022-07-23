@@ -24,7 +24,6 @@ $count = mysqli_num_rows($result);
 // }
 
 
-
 ?>
 
 
@@ -156,8 +155,6 @@ $count = mysqli_num_rows($result);
                                                     <th> ค่าเสื่อมสะสม</th>
                                                     <th> มูลค่าครุภัณฑ์คงเหลือ</th>
                                                     <th> หมายเหตุ</th>
-
-
                                                     </tr>
 
                                                 </thead>
@@ -187,13 +184,9 @@ $count = mysqli_num_rows($result);
                                                             <td><?= $row['eq_number'] ?></td>
                                                             <td><?= $row['sub_name'] ?></td>
                                                             <td><?= date('d/m/Y', strtotime($row['eq_buydate'])); ?></td>
-
-
-
                                                             <td><?= $row['type_lifetime_low'] ?></td>
                                                             <td><?= $row['eq_fiscal_year'] ?></td>
                                                             <td><?= number_format($row['eq_price'], 2) ?></td>
-
                                                             <!-- <td><?= $depreciation ?></td> -->
                                                             <td><?= number_format($depreciation, 2) ?></td>
                                                             <td></td>
