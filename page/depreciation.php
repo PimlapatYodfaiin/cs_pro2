@@ -149,6 +149,7 @@ $count = mysqli_num_rows($result);
                                                     <th> วันที่ซื้อ</th>
                                                     <!-- <th scope="col"> วันที่เริ่มคิดค่าเสื่อม</th> -->
                                                     <th> อายุตามที่กำหนด</th>
+                                                    <th> ปีงบประมาณ</th>
                                                     <th> มูลค่าครุภัณฑ์</th>
                                                     <th> ค่าเสื่อมราคาครุภัณฑ์</th>
                                                     <th> ค่าเสื่อมงวดนี้</th>
@@ -190,6 +191,7 @@ $count = mysqli_num_rows($result);
 
 
                                                             <td><?= $row['type_lifetime_low'] ?></td>
+                                                            <td><?= $row['eq_fiscal_year'] ?></td>
                                                             <td><?= number_format($row['eq_price'], 2) ?></td>
 
                                                             <!-- <td><?= $depreciation ?></td> -->
