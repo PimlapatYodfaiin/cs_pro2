@@ -8,8 +8,7 @@ session_start();
     $connect=mysqli_connect("$host","$user","$passwd","$db") or die("เกิดข้อผิดพลาดเกิดขึ้น");
     error_reporting(E_ALL ^ E_NOTICE);
 
-//Set ว/ด/ป เวลา ให้เป็นของประเทศไทย
-date_default_timezone_set('Asia/Bangkok');
+
 ?>
 
     

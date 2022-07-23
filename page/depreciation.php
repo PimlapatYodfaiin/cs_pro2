@@ -1,46 +1,27 @@
 <?php
 include 'dbconnect.php';
 
-
-
-
-
-$select = "SELECT equipments.*,subcategorys.sub_name FROM equipments
-INNER JOIN subcategorys on subcategorys.sub_id = equipments.eq_sub_id";
-// -- INNER JOIN types ON types.type_id = equipments.eq_type_depreciation";
+$select = " SELECT equipments.*,subcategorys.sub_name FROM equipments
+INNER JOIN subcategorys on subcategorys.sub_id = equipments.eq_sub_id
+INNER JOIN types ON types.type_id = equipments.eq_type_depreciation";
 $query = mysqli_query($connect, $select);
 $row = mysqli_fetch_assoc($query);
 $result = mysqli_query($connect, $select);
 $count = mysqli_num_rows($result);
-$row = mysqli_fetch_assoc($result);
 
-$d =$row['eq_buydate'] ;
-    $e = explode("-", $d);
-    echo "วันที่แบบเดิม ".$d;
-    echo "<br/>";
-    echo "วันที่ ".$e[2]." / เดือน ".$e[1]." / ปี ".$e[0];
-    $day_POST			= date("d");		//วัน - ตรวจรับ
-	$month_POST		= date("m");		//เดือน - ตรวจรับ
-	$year_POST		= date("Y");		//ปี - ตรวจรับ
-    $asset_date = $year_POST."-".$month_POST."-".$day_POST;
 
-    
-	$start_m_budget	= '10';		//กำหนดเดือน เริ่มต้นปีงบประมาณ 1 ตุลาคม
-	$start_d_budget	= '01';		//กำหนดวัน เริ่มต้นปีงบประมาณ 1 ตุลาคม
-	$end_m_budget	= '09';		//กำหนดเดือน สิ้นปีงบประมาณ 30 กันยายน
-	$end_d_budget	= '30';		//กำหนดวัน สิ้นปีงบประมาณ 30 กันยายน
-	$day_POST			= date("d");		//วัน - ตรวจรับ
-	$month_POST		= date("m");		//เดือน - ตรวจรับ
-	$year_POST		= date("Y");		//ปี - ตรวจรับ
-
-    if($year_POS=($row['eq_fiscal_year'])){
-        if($month_POST<=$end_m_budget){
-            
-
-        }
-
-    }
-
+// while ($row = mysqli_fetch_assoc($result)) {
+//     if(date("Y-m-d") >= $row['eq_date_calculate'] && $row['eq_price'] > 1){
+//         if((strtotime(date("Y-m-d")) - strtotime($row['eq_buydate'])) >= 365){  //ครบปี, สิ้นปี
+//             $depreciation = ($row['eq_price'] - 1) / $row['type_lifetime_low'];
+//             // $depreciation_plus	=round($depreciation_plus + $depreciation, 2);
+//             if($depreciation < 1){$depreciation = 1;}
+//         }
+//         else{   //ไม่ครบปี
+//             $depreciation = (((strtotime(date("Y-m-d")) - strtotime($row['eq_buydate'])) / 365) * $row['eq_price']) / $row['type_depreciation'];
+//         }
+//     }
+// }
 
 
 
@@ -77,11 +58,9 @@ $d =$row['eq_buydate'] ;
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">ค่าเสื่อมราคา</a>
-                                    </li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">ค่าเสื่อมราคา</a></li>
                                     <!-- <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">จัดการข้อมูลค่าเสื่อมราคา</a></li> -->
-                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูลค่าเสื่อมราคา
-                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูลค่าเสื่อมราคา</li>
                                 </ol>
                             </nav>
                         </div>
@@ -130,7 +109,6 @@ $d =$row['eq_buydate'] ;
                                     <div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
                                         <i class="fas fa-cubes fa-fw fa-sm text-primary"></i>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -162,12 +140,10 @@ $d =$row['eq_buydate'] ;
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <table class="table table-striped table-bordered first">
-                                            <table id="example"
-                                                class="table table-striped table-bordered second dataTable"
-                                                style="width: 100%;" role="grid" aria-describedby="example_info">
+                                            <table id="example" class="table table-striped table-bordered second dataTable" style="width: 100%;" role="grid" aria-describedby="example_info">
                                                 <!-- <table class="table table-striped table-bordered"> -->
                                                 <thead>
-                                                <th>#</th>
+                                                    <th>#</th>
                                                     <th> หมายเลขครุภัณฑ์</th>
                                                     <th> รายการ</th>
                                                     <th> วันที่ซื้อ</th>
@@ -185,15 +161,12 @@ $d =$row['eq_buydate'] ;
 
                                                 </thead>
                                                 <tbody>
-                                                    <?php 
-                                                    $i = 1;
-                                                    // $year1=date("Y");
+                                                    <?php $i = 1;
                                                     $depreciation;
-                                                    // $date_end = date("30-10-65");
                                                     while ($row = mysqli_fetch_assoc($result)) {
-
                                                         $depreciation = ($row['eq_price'] - 1) / $row['type_lifetime_low'];
-                                                        // if ( =$year1 ) {
+
+                                                        // if (date("Y-m-d") >= $row['eq_date_calculate'] && $row['eq_price'] > 1) {
                                                         //     if ((strtotime(date("Y-m-d")) - strtotime($row['eq_buydate'])) >= 365) {  //ครบปี, สิ้นปี
                                                         //         $depreciation = ($row['eq_price'] - 1) / $row['type_lifetime_low'];
                                                         //         // $depreciation_plus	=round($depreciation_plus + $depreciation, 2);
@@ -207,12 +180,15 @@ $d =$row['eq_buydate'] ;
                                                     ?>
 
 
-                                                    <tr>
+                                                        <tr>
 
-                                                    <td><?= $i++; ?></td>
+                                                            <td><?= $i++; ?></td>
                                                             <td><?= $row['eq_number'] ?></td>
                                                             <td><?= $row['sub_name'] ?></td>
                                                             <td><?= date('d/m/Y', strtotime($row['eq_buydate'])); ?></td>
+
+
+
                                                             <td><?= $row['type_lifetime_low'] ?></td>
                                                             <td><?= number_format($row['eq_price'], 2) ?></td>
 
@@ -223,7 +199,9 @@ $d =$row['eq_buydate'] ;
                                                             <td></td>
                                                             <td></td>
                                                           
-                                                    </tr>
+                                                        </tr>
+                                                        </tr>
+                                                        </tr>
                                                     <?php } ?>
                                                 </tbody>
 
@@ -239,7 +217,7 @@ $d =$row['eq_buydate'] ;
             </div>
 
         </div>
-    </div>
+        <!-- </div> -->
 
     </div>
     </div>
