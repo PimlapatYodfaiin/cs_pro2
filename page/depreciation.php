@@ -192,7 +192,7 @@ $d =$row['eq_buydate'] ;
                                                     // $date_end = date("30-10-65");
                                                     while ($row = mysqli_fetch_assoc($result)) {
 
-                                                        $depreciation = ($row['eq_price'] - 1) / $row['eq_type_lifetime_low'];
+                                                        $depreciation = ($row['eq_price'] - 1) / $row['type_lifetime_low'];
                                                         // if ( =$year1 ) {
                                                         //     if ((strtotime(date("Y-m-d")) - strtotime($row['eq_buydate'])) >= 365) {  //ครบปี, สิ้นปี
                                                         //         $depreciation = ($row['eq_price'] - 1) / $row['type_lifetime_low'];
@@ -213,9 +213,6 @@ $d =$row['eq_buydate'] ;
                                                             <td><?= $row['eq_number'] ?></td>
                                                             <td><?= $row['sub_name'] ?></td>
                                                             <td><?= date('d/m/Y', strtotime($row['eq_buydate'])); ?></td>
-
-
-
                                                             <td><?= $row['type_lifetime_low'] ?></td>
                                                             <td><?= number_format($row['eq_price'], 2) ?></td>
 
